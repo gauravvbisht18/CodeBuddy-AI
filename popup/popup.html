@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBuddy AI</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CodeBuddy AI</h1>
+            <p>Your LeetCode Assistant</p>
+        </header>
+
+        <main>
+            <div class="panel-controls-section">
+                <button id="togglePanelBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                    <span>Toggle Panel</span>
+                </button>
+            </div>
+
+            <div class="api-key-section" id="apiKeySection">
+                <h2>Gemini API Key</h2>
+                <input type="password" id="apiKey" placeholder="Enter your Gemini API Key">
+                <button id="saveApiKey">Save Key</button>
+                <p id="apiKeyStatus" class="status-message"></p>
+            </div>
+
+            <div class="stats-section">
+                <h2>Overall Statistics</h2>
+                <div id="stats-grid">
+                    <div class="stat-item"><span class="stat-value" id="totalProblems">0</span><span class="stat-label">Problems</span></div>
+                    <div class="stat-item"><span class="stat-value" id="totalTime">0m</span><span class="stat-label">Time Spent</span></div>
+                    <div class="stat-item"><span class="stat-value" id="totalHints">0</span><span class="stat-label">Hints</span></div>
+                    <div class="stat-item"><span class="stat-value" id="totalSolutions">0</span><span class="stat-label">Solutions</span></div>
+                </div>
+            </div>
+
+            <div class="recent-problems-section">
+                <h2>Recent Problems & Notes</h2>
+                <ul id="recentProblemsList">
+                    <!-- Recent problems will be dynamically inserted here -->
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <button id="clearData" class="danger-btn">Clear All Data</button>
+        </footer>
+    </div>
+
+    <div id="notesModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button id="modalCloseBtn" class="modal-close">&times;</button>
+            <h3 id="modalProblemTitle"></h3>
+            <div id="modalNotesContent"></div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

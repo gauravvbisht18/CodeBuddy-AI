@@ -1,0 +1,252 @@
+/* --- Main Panel Container --- */
+#codebuddy-ai-panel {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 380px;
+  background: linear-gradient(145deg, #23272f, #1a1c22);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 12px 50px -12px rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #EAEAEA;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s ease-out;
+  transform-origin: top right;
+  max-height: 85vh;
+}
+
+/* --- Collapse Functionality --- */
+#codebuddy-ai-panel.collapsed {
+  max-height: 55px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+#codebuddy-ai-panel.collapsed .cbai-body {
+  display: none;
+}
+
+/* --- Draggable Header --- */
+.cbai-header {
+  padding: 0 10px 0 20px;
+  height: 55px;
+  background: rgba(37, 37, 37, 0.8);
+  -webkit-backdrop-filter: blur(10px); 
+   backdrop-filter: blur(10px);
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  -webkit-user-select: none; 
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.cbai-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #8E2DE2, #4A00E0);
+  
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* --- Panel Controls --- */
+.cbai-panel-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cbai-timer {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+  color: #999;
+  margin-right: 10px;
+}
+
+.cbai-header-btn {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.cbai-header-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.cbai-header-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+}
+.cbai-header-btn.refreshing svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Panel Body --- */
+.cbai-body {
+  padding: 0 5px 18px 5px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1A1A1A;
+}
+.cbai-body::-webkit-scrollbar {
+  width: 6px;
+}
+.cbai-body::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+.cbai-body::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+/* --- Problem Info Section --- */
+.cbai-problem-info {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.cbai-problem-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fff;
+}
+.cbai-problem-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+/* --- Section Styling --- */
+.cbai-section {
+  background-color: rgba(37, 37, 37, 0.5);
+  -webkit-backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 0 15px 15px 15px;
+  overflow: hidden;
+}
+.cbai-section h4 {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ccc;
+  border-bottom: 1px solid #333;
+}
+.cbai-section-content {
+  padding: 15px;
+}
+
+/* --- Buttons --- */
+.cbai-button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #333;
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+.cbai-button:hover:not(:disabled) {
+  background-color: #444;
+  border-color: #8E2DE2;
+  color: #fff;
+}
+.cbai-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.cbai-solution-btn {
+  background: linear-gradient(90deg, #8E2DE2, #4A00E0);
+  border: none;
+  color: #fff;
+}
+
+/* --- Display & Text Areas --- */
+.cbai-display-area {
+  background-color: #1A1A1A;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: -2px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #333;
+  line-height: 1.6;
+}
+
+.cbai-textarea {
+  width: calc(100% - 24px);
+  height: 120px;
+  background-color: #1A1A1A;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #ddd;
+  padding: 12px;
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 13px;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cbai-textarea:focus {
+  outline: none;
+  border-color: #8E2DE2;
+}
+
+/* --- Save Button --- */
+.cbai-save-notes-btn {
+  background-color: #8E2DE2;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  float: right;
+  margin-top: 10px;
+}
+.cbai-save-notes-btn:hover {
+  background-color: #9d4edd;
+}
+.cbai-save-notes-btn.saved {
+  background-color: #4caf50;
+}
