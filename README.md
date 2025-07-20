@@ -8,6 +8,9 @@
 
 ### Demo
 
+*It is highly recommended to create a short screen recording of the extension in action and convert it to a GIF. Tools like **Giphy Capture**, **ScreenToGif** (Windows), or **Kap** (macOS) are great for this. A visual demo is the best way to showcase your project.*
+
+![CodeBuddy AI Demo GIF](https://placehold.co/800x450/252525/FFFFFF?text=Your%20Awesome%20Demo%20GIF%20Here)
 
 ---
 
@@ -24,16 +27,6 @@
 
 ---
 
-### 🚀 Installation (Local)
-
-1.  **Download:** Download this repository as a `.zip` file and unzip it.
-2.  **Open Chrome Extensions:** Open Chrome and navigate to `chrome://extensions`.
-3.  **Enable Developer Mode:** Turn on the "Developer mode" toggle in the top-right corner.
-4.  **Load Unpacked:** Click the "Load unpacked" button and select the unzipped extension folder.
-5.  **Pin the Extension:** Pin CodeBuddy AI to your toolbar for easy access!
-
----
-
 ### 🛠️ How to Use
 
 1.  **Navigate to LeetCode:** Go to any problem page on `leetcode.com`. The CodeBuddy AI panel will automatically appear.
@@ -47,6 +40,14 @@
     * Use the **"Code Reviewer"** to get feedback on your implementation.
     * Write down your thoughts in the **"My Notes"** section and click "Save Notes" or "Update Notes".
     * Click the extension icon anytime to view your stats and access notes from recent problems.
+
+---
+
+### 📜 License & Permissions
+
+This project is a personal portfolio piece created to showcase my skills in extension development, UI/UX design, and front-end programming. The code is publicly visible for demonstration purposes.
+
+If you are inspired by this project or would like to use any part of the code for your own purposes, please contact me first. I would be happy to discuss it with you. Unauthorized copying, distribution, or use of this code is not permitted.
 
 ---
 
